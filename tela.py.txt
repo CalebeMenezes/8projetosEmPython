@@ -1,0 +1,45 @@
+import PySimpleGUI as sg
+
+class TelaPython:
+    def __init__(self):
+        #layout 
+        layout =[
+            [sg.text('Nome'),sg.input()],
+            [sg.text('Idade'),sg,input()],
+            [sg.button('Enivar dados')]
+        ]
+        #janela
+        janela = sg.Window('Dados do ususario').layout(layout)
+        #extrair dados
+        self.button, self.values = janela.Read() 
+
+    def Iniciar(self):
+        print(self.values)
+
+tela = TelaPython()      
+tela.Iniciar()
+------------------------------------------------------------
+
+
+import PySimpleGUI as sg
+
+sg.theme('DarkAmber')   # Add a touch of color
+# All the stuff inside your window.
+layout = [  [sg.Text('Some text on Row 1')],
+            [sg.Text('Enter something on Row 2'), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')] ]
+
+# Create the Window
+window = sg.Window('Window Title', layout)
+# Event Loop to process "events" and get the "values" of the inputs
+while True:
+    event, values = window.read()
+    if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
+        break
+    print('You entered ', values[0])
+
+window.close()
+
+-------------
+
+sg.in(size=(25, 1), enable_events=True, key='-FOLDER-'),
